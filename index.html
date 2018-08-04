@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
- <div class="mapa">
+ <div class="mapa">    
     <div id="rover" class="rover"></div>
     <div id="rover2" class= "rover2"></div>
       <div class="obs1">
@@ -34,21 +34,31 @@
          <p>HAB</p>
       </div>
   </div>
+  <div class="botonesRover">
+      <div>
+          <button class="seleRover1" onclick="clickBoton1(rover)">Rover1</button>
+        </div>
+        <div>
+            <button class="seleRover2" onclick="clickBoton2(rover2)">Rover2</button>
+        </div>
+  </div>
+  <div class="cruceta">
   <div>
-      <button class="forward" onclick="moveForward(rover)"></button>
+      <button class="forward" onclick="moveForward(rover);moveForward2(rover2)"></button>
     </div>    
     <div>
-        <button class="left" onclick="turnLeft(rover)"></button>
+        <button class="left" onclick="turnLeft(rover);turnLeft2(rover2)"></button>
     </div>
     <div>
-        <button class="right" onclick="turnRight(rover)"></button>
+        <button class="right" onclick="turnRight(rover);turnRight2(rover2)"></button>
     </div>
     <div>
-        <button class="backward" onclick="moveBackward(rover)"></button>
+        <button class="backward" onclick="moveBackward(rover);moveBackward2(rover2)"></button>
     </div>
+  </div>
 
   
-  <script src="javascripts/app.js"></script>
+  <script src="/home/teodiaz/code/prework/JS/mars-rover-v2/app.js"></script>
 </body>
 </html>
 
