@@ -1,0 +1,132 @@
+.mapa{
+  background-image: url('images/grid.png');
+  background-size: cover;
+  width: 500px;
+  height: 500px;
+}
+
+.mapa .rover{
+  background: blue;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  border-radius: 100%;
+}
+
+.mapa .rover2{
+  background: green;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 465px;
+  left: 467px;
+  border-radius: 100%;
+}
+
+.mapa .obs1{
+  position: absolute;
+  left:60px;
+  top:115px;
+}
+
+.mapa .obs2{
+  position: absolute;
+  left:260px;
+}
+
+.mapa .obs3{
+  position: absolute;
+  left: 460px;
+}
+
+.mapa .obs4{
+  position: absolute;
+  top: 260px;
+  left: 110px;
+}
+
+.mapa .obs5{
+  position: absolute;
+  top: 360px;
+  left: 12px;
+}
+
+.mapa .obs6{
+  position: absolute;
+  top: 410px;
+  left: 210px;
+}
+
+.mapa .obs7{
+  position: absolute;
+  top:310px;
+  left: 360px;
+}
+
+.mapa .HAB{
+  position: absolute;
+  top:210px;
+  left:215px;
+  color: red;
+}
+
+.forward{
+  position: relative;
+  margin-top:20px;
+  margin-left:200px;
+  width: 0; 
+  height: 0; 
+  border-left: 50px solid transparent;
+  border-top: 0px solid transparent;
+  border-bottom: 100px solid #f0ad4e; 
+  border-right:50px solid transparent;
+  background:none;
+  outline:none;
+  
+}
+
+.left{
+  position: relative;
+  margin-top:20px;
+  margin-left: 50px;
+  width: 0; 
+  height: 0; 
+  border-left: none;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent; 
+  border-right:100px solid #f0ad4e;
+  background:none;
+  float:left; 
+  outline: none;
+}
+
+.right{
+  position: relative;
+  margin-top:20px;
+  margin-right: 1368px;
+  width: 0; 
+  height: 0; 
+  border-left: 100px solid #f0ad4e;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent; 
+  border-right:none;
+  background:none;
+  float:right;
+  outline:none;
+}
+
+.backward{
+  position: absolute;
+  margin-top:157px;
+  margin-left:38px;  
+  width: 0; 
+  height: 0; 
+  border-left: 50px solid transparent;
+  border-top: 100px solid #f0ad4e;
+  border-bottom: 0px solid transparent; 
+  border-right:50px solid transparent;
+  background:none;
+  outline:none;
+}
