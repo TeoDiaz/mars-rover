@@ -282,7 +282,6 @@ function moveBackward(rover){
 
 
 function turnLeft(rover){
-  var giro270 = roverHtml.style.webkitTransform = "rotate("+270+"deg)";
   if(botonRover1 == false && botonRover2 == false){
     alert("Selecciona un Rover!");
   }else if(botonRover1){
