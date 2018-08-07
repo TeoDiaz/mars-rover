@@ -29,8 +29,8 @@
   left: 467px;
   border-radius: 100%;
   border-right: 15px solid rgb(14, 153, 14);
-  border-left: 15px solid transparent;
-  border-top: 15px solid rgb(14, 153, 14);
+  border-left: 15px solid rgb(14, 153, 14);
+  border-top: 15px solid transparent;
   border-bottom: 15px solid rgb(14, 153, 14); 
   -moz-border-radius: 100%; 
   -webkit-border-radius: 100%;
