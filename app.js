@@ -1,4 +1,3 @@
-
 var rover = {
   direction: "N",
   y: 1,
@@ -30,7 +29,6 @@ console.log("Tu Rover esta mirando hacia el" + " " + rover.direction + " " + "pe
 console.log("Tu Rover esta en la casilla" + " " + rover.x + " " + rover.y + " " + "el otro, no tengo ni idea...");
 console.log("Corre, te estas quedando sin oxigeno y la cena se enfrian en el HAB");
 
-
 var superficie =[
  [null,null,null,null,null,"O",null,null,null,"O"],
  [null,null,null,null,null,null,null,null,null,null],
@@ -48,10 +46,26 @@ console.log(superficie);
 superficie[rover.y][rover.x] = "R";
 superficie[rover2.y][rover2.x] = "R2";
 
+function checkColission(nextPosition){
+
+  var isCollision = false;
+
+  if(nextPosition == "O"){
+    console.log("Cuidado! Un obstaculo");
+    alert("Cuidado, que te vas a reventar");
+    isCollision = true;
+  }else if((nextPosition == "R2") || (nextPosition == "R")){
+    console.log("Cuidado, hay otro Rover delante, no lo ves?");
+    alert("Cuidado, hay un Rover delante");
+    isCollision = true;
+  }
+  return isCollision;
+}
+
 function moveForward(choosenRover){
   if(choosenRover == "select"){
     alert("Selecciona un Rover!");
-  }else if(choosenRover != "select"){
+  }else{
     console.log("Avanzas!");
     if(onHab){
       superficie[choosenRover.y][choosenRover.x] = "HAB";
@@ -66,13 +80,7 @@ function moveForward(choosenRover){
           alert("Cuidado, te sales del planeta");
         }else{
           var nextPosition = superficie[choosenRover.y - 1][choosenRover.x];
-          if(nextPosition == "O"){
-            console.log("Cuidado! Un obstaculo");
-            alert("Cuidado, que te vas a reventar");
-          }else if((nextPosition == "R2") || (nextPosition == "R")){
-            console.log("Cuidado, hay otro Rover delante, no lo ves?");
-            alert("Cuidado, hay un Rover delante");
-          }else{
+          if(!checkColission(nextPosition)) {
             choosenRover.y -= 1;
             var pos = choosenRover.y * 50 + 25;
             choosenRoverHtml.style.top = pos+"px";
@@ -91,13 +99,7 @@ function moveForward(choosenRover){
           alert("Cuidado, te sales del planeta!");
         }else{
           var nextPosition = superficie[choosenRover.y + 1][choosenRover.x];
-          if(nextPosition == "O"){
-            console.log("Cuidado! Un obstaculo!!");
-            alert("CUIDADOOOOOO");
-          }else if((nextPosition == "R2") || (nextPosition == "R")){
-            console.log("Cuidado, hay otro Rover delante, no lo ves?");
-            alert("Cuidado, hay un Rover delante");
-          }else{
+          if(!checkColission(nextPosition)){
             choosenRover.y += 1;
             var pos = choosenRover.y * 50 + 25;
             choosenRoverHtml.style.top = pos+"px";
@@ -116,13 +118,7 @@ function moveForward(choosenRover){
           alert("Cuidado, te sales del planeta!");
         }else{
           var nextPosition = superficie[choosenRover.y][choosenRover.x + 1];
-          if(nextPosition == "O"){
-            console.log("Cuidado! Un obstaculo");
-            alert("¿Pero que haces?");
-          }else if((nextPosition == "R2") || (nextPosition == "R")){
-            console.log("Cuidado, hay otro Rover delante, no lo ves?");
-            alert("Cuidado, hay un Rover delante");
-          }else{
+          if(!checkColission(nextPosition)){
             choosenRover.x += 1;
             var pos = choosenRover.x * 50 + 25;
             choosenRoverHtml.style.left = pos+"px";
@@ -141,13 +137,7 @@ function moveForward(choosenRover){
           alert("Cuidado, te sales del planeta!");
           }else{
             var nextPosition = superficie[choosenRover.y][choosenRover.x -1];
-            if(nextPosition == "O"){
-              console.log("Cuidado! Un obstaculo");
-              alert("Cuidado, acabas de pinchar con una piedra");
-            }else if((nextPosition == "R2") || (nextPosition == "R")){
-              console.log("Cuidado, hay otro Rover delante, no lo ves?");
-              alert("Cuidado, hay un Rover delante");
-            }else{
+            if(!checkColission(nextPosition)){
               choosenRover.x -=1;
               var pos = choosenRover.x * 50 + 25;
               choosenRoverHtml.style.left = pos+"px";
@@ -174,7 +164,7 @@ function moveForward(choosenRover){
 function moveBackward(choosenRover){
   if(choosenRover == "select"){
     alert("Selecciona un Rover");
-  }else if(choosenRover != "select"){ 
+  } else { 
     console.log("Hacia atras!");
     if(onHab){
       superficie[choosenRover.y][choosenRover.x] = "HAB";
@@ -189,13 +179,7 @@ function moveBackward(choosenRover){
           alert("Cuidado, te sales del planeta!");
         }else{
           var nextPosition = superficie[choosenRover.y + 1][choosenRover.x];
-          if(nextPosition == "O"){
-            console.log("Cuidado! Un obstaculo");
-            alert("Cuidado, te has chocado con THE ROCK");
-          }else if((nextPosition == "R2") || (nextPosition == "R")){
-            console.log("Cuidado, hay otro Rover delante, no lo ves?");
-            alert("Cuidado, hay un Rover delante");
-          }else{
+          if(!checkColission(nextPosition)){
             choosenRover.y += 1;
             var pos = choosenRover.y * 50 + 25;
             choosenRoverHtml.style.top = pos+"px";
@@ -214,13 +198,7 @@ function moveBackward(choosenRover){
           alert("Cuidado, te sales del planeta!");
         }else{
           var nextPosition = superficie[choosenRover.y - 1][choosenRover.x];
-          if(nextPosition == "O"){
-            console.log("Cuidado! Un obstaculo");
-            alert("Cuidado, que te chocas");
-          }else if((nextPosition == "R2") || (nextPosition == "R")){
-            console.log("Cuidado, hay otro Rover delante, no lo ves?");
-            alert("Cuidado, hay un Rover delante");
-          }else{
+          if(!checkColission(nextPosition)){
             choosenRover.y -= 1;
             var pos = choosenRover.y * 50 + 25;
             choosenRoverHtml.style.top = pos+"px";
@@ -239,13 +217,7 @@ function moveBackward(choosenRover){
           alert("Cuidado, te sales del planeta!");
         }else{
           var nextPosition = superficie[choosenRover.y][choosenRover.x - 1];
-          if(nextPosition == "O"){
-            console.log("Cuidado! Un obstaculo");
-            alert("Cuidado, una pedazo de piedra");
-          }else if((nextPosition == "R2") || (nextPosition == "R")){
-            console.log("Cuidado, hay otro Rover delante, no lo ves?");
-            alert("Cuidado, hay un Rover delante");
-          }else{
+          if(!checkColission(nextPosition)){
             choosenRover.x -=1;
             var pos = choosenRover.x * 50 + 25;
             choosenRoverHtml.style.left = pos+"px";          
@@ -264,13 +236,7 @@ function moveBackward(choosenRover){
           alert("Cuidado, te sales del planeta!");
         }else{
           var nextPosition = superficie[choosenRover.y][choosenRover.x + 1];
-          if(nextPosition == "O"){
-            console.log("Cuidado! Un Obstaculo");
-            alert("Cuidado, una Roca");
-          }else if((nextPosition == "R2") || (nextPosition == "R")){
-            console.log("Cuidado, hay otro Rover delante, no lo ves?");
-            alert("Cuidado, hay un Rover delante");
-          }else{
+          if(!checkColission(nextPosition)){
             choosenRover.x +=1;
             var pos = choosenRover.x * 50 + 25;
             choosenRoverHtml.style.left = pos+"px";
